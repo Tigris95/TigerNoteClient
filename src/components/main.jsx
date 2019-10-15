@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './header'
+import ToDoList from './toDoList'
 // to do api
 
 class Main extends Component {
@@ -7,7 +8,8 @@ class Main extends Component {
         return (
             <div>
                 <Header/>
-            Main Component Client Site
+                <ToDoList/>
+                Main Component Client Site
             </div>
         );
     }
