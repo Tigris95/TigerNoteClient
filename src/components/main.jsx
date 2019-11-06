@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './header'
 import ToDoList from './toDoList'
-import AddTodo from './addTodo'
+
 // to do api
 
 class Main extends Component {
@@ -10,7 +10,6 @@ class Main extends Component {
             <div>
                 <Header/>
                 <ToDoList/>
-                <AddTodo/>
             </div>
         );
     }

@@ -1,8 +1,134 @@
 $bg: #333;
 $white: #fff;
+$grey: #aaa;
+$main-font:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode'; 
+
+@mixin center{
+    margin-left: auto; 
+    margin-right: auto; 
+}
 
 body{
     background: $bg;
     color: $white;
-    margin-left: 190px;
+    align-content: center;
 }
+
+.Item{
+    position: relative;
+    display: flex;
+    flex-direction: column ;
+    min-height: 120px;
+    background: $grey;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    @include center;
+    opacity: 0.5;
+    transition: 0.3s ease-in-out;
+    &:hover{
+        opacity: 1;
+    }
+
+    &__header{
+        width: 200px;
+        @include center;
+        
+    }
+    &__title{
+        font-size: 2rem;
+        margin-left: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    &__date{
+        margin-left: 10px;
+        &--main{
+            font-size: 1.2rem;
+        }
+        &--day{       
+            font-size: 1.1rem
+        }
+    }
+    &__button{
+  
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        margin-left: 95%;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;  
+        cursor: pointer;
+    }
+    &__input{
+        background: red;
+    }
+    &__hideText{
+ 
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        background: red;
+        margin-left:95% ;
+        cursor: pointer;
+    }
+    &__text{
+        margin-left: 15px;
+        font-size: 1.5rem;
+        width: 80%;
+        word-wrap: break-word;
+    }
+    &__done{
+        margin-left: 10px;
+    }
+}
+.Form{
+    display: none;
+    flex-direction: column;
+    @include center;
+
+    &__container{
+        margin: auto auto;
+        width: 70%;
+      //  background: #557700;
+      margin-bottom: 10px;
+    }
+    &__button{
+        display: flex;
+        flex-direction: column;
+        width: 50px;
+        height: 50px;
+        background: #e2f725;
+        color: #000;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 26px;
+        padding: 3px;
+        p{
+            position: relative;
+            bottom: 16px;
+        }
+        &:hover{
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
+    &__label{
+        font-family: $main-font;
+        font-size: 1.2rem;  
+    }
+    &__title{
+        background: $grey; 
+        font-size: 1.5rem;
+    }
+    &__submit{
+        width: 200px;
+        margin: auto;
+    }  
+    &__text{
+        height: 100px;
+        background: $grey;
+        font-family: $main-font;
+    }
+}
+

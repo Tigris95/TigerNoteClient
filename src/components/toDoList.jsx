@@ -1,22 +1,31 @@
 import React,{Component} from 'react';
-import ToDoListItem from './toDoListItem'
-import axios from 'axios'
+import ToDoListItem from './toDoListItem';
+import AddTodo from './addTodo'
+
+import{axiosGet} from './helpers/axios-helper'
 
 class ToDoList extends Component{
         state={
             todo:[]
         }
     componentDidMount(){
-        axios.get('http://localhost:5000/')
-       .then( res => {
-          this.setState({todo:res.data}) 
-       })
-       .then(console.log('get all data'))  
+    axiosGet(this)
     }
     render(){
         const removeTodo = (id) =>{this.setState({todo: this.state.todo.filter(item => item._id !== id)})}
-        const todoItems = ()=> this.state.todo.map(todo =><ToDoListItem key={todo._id} todo={todo} remove={removeTodo}  />)
-            return todoItems()
+
+        const addtodo = (todo) =>{
+            const newTodo = this.state.todo.concat(todo)
+            this.setState({todo: newTodo})
+        }
+        const todoItems = ()=> this.state.todo.map(todo =><ToDoListItem key={todo._id} todo={todo} remove={removeTodo}/>)
+    
+            return( 
+                <div>
+                    <AddTodo AddTodo={addtodo}></AddTodo>
+                    {todoItems()}
+                </div>     
+                );
     }
 }
 export default ToDoList
